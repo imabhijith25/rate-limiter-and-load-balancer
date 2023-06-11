@@ -8,6 +8,7 @@ const subServerOne:Application  = express() //sub server
 const subServerTwo:Application = express() //sub server
 
 
+loadBalancer.use(express.json());
 loadBalancer.use(rateLimiter)
 loadBalancer.get("/roundrobin",(req: Request,res: Response)=>{
     assignRoundRobin().then(result=>{
